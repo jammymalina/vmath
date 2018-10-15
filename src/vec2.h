@@ -42,6 +42,7 @@ void vec2_round(vec2 dest);
 void vec2_round_to_zero(vec2 dest);
 
 void vec2_negate(vec2 dest);
+void vec2_reflect(vec2 dest, const vec2 normal);
 
 float vec2_dot(const vec2 v, const vec2 w);
 float vec2_cross(const vec2 v, const vec2 w);

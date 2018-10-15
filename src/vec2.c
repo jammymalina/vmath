@@ -133,6 +133,13 @@ void vec2_negate(vec2 dest) {
     dest[1] = -dest[1];
 }
 
+void vec2_reflect(vec2 dest, const vec2 normal) {
+    vec2 v;
+    vec2_copy(v, normal);
+    vec2_multiply_scalar(v, 2 * vec2_dot(dest, normal));
+    vec2_sub(dest, v);
+}
+
 float vec2_dot(const vec2 v, const vec2 w) {
     return v[0] * w[0] + v[1] * w[1];
 }
