@@ -5,22 +5,23 @@
 #include <stdbool.h>
 
 #define VMATH_EPSILON 0.00001
+#define VMATH_PI 3.14159265
 
-#define VMATH_MIN(X,Y) ((X) < (Y) ? : (X) : (Y))
-#define VMATH_MAX(X,Y) ((X) > (Y) ? : (X) : (Y))
+#define VMATH_MIN(X, Y) ((X) < (Y) ? (X) : (Y))
+#define VMATH_MAX(X, Y) ((X) > (Y) ? (X) : (Y))
 
-static inline vfloat_equals(float a, float b) {
-    float abs_a = fabs(a);
-    float abs_b = fabs(b);
-    float diff = fabs(a - b);
+static inline bool vfloat_equals(float a, float b, float max_rel_diff) {
+    const float abs_a = fabs(a);
+    const float abs_b = fabs(b);
+    const float diff = fabs(a - b);
 
-    if (a == b) {
-        return true;
-    } else if (a == 0 || b == 0 || diff < Float.MIN_NORMAL) {
-        return diff < (VMATH_EPSILON * Float.MIN_NORMAL);
-    } else { // use relative error
-        return diff / VMATH_MIN((abs_a + abs_b), Float.MAX_VALUE) < VMATH_EPSILON;
-    }
+    const float scaled_epsilon = max_rel_diff * VMATH_MAX(abs_a, abs_b);
+
+    return diff <= scaled_epsilon;
+}
+
+static inline float vclamp(float x, float min, float max) {
+    return VMATH_MAX(min, VMATH_MIN(max, x));
 }
 
 #endif
