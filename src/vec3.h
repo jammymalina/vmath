@@ -2,9 +2,6 @@
 #define VMATH_VEC3_H
 
 #include "./vmath.h"
-#include "./mat3.h"
-
-typedef float vec3[3];
 
 void vec3_set_scalar(vec3 dest, float s);
 void vec3_copy(vec3 dest, const vec3 src);

@@ -3,9 +3,6 @@
 
 #include <stdbool.h>
 #include "./vmath.h"
-#include "./mat3.h"
-
-typedef float vec2[2];
 
 void vec2_set_scalar(vec2 dest, float s);
 void vec2_copy(vec2 dest, const vec2 src);

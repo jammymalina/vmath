@@ -3,6 +3,7 @@
 
 #include <math.h>
 #include <stdbool.h>
+#include "./types.h"
 
 #define VMATH_EPSILON 0.00001
 #define VMATH_PI 3.14159265

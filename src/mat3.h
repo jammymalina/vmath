@@ -3,6 +3,4 @@
 
 #include "./vmath.h"
 
-typedef float mat3[9];
-
 #endif
